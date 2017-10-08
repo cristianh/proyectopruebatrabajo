@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Banco-POM/Banco-POM/Banco-EJB/src/main/java"/>
+	<classpathentry kind="src" path="Banco-POM/Banco-POM/Banco-JPA/src/main/java"/>
+	<classpathentry kind="src" path="Banco-POM/Banco-POM/Banco-STANDALONE/src/main/java"/>
+	<classpathentry kind="src" path="Banco-POM/Banco-POM/Banco-WEB/src/main/java"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-EAR/target/Banco-EAR/Banco-EJB.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-EAR/target/Banco-EAR/lib/Banco-JPA.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-EAR/target/Banco-EAR/lib/cdi-api.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-EAR/target/Banco-EAR/lib/javax.annotation-api.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-EAR/target/Banco-EAR/lib/javax.el-api.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-EAR/target/Banco-EAR/lib/javax.inject.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-EAR/target/Banco-EAR/lib/javax.interceptor-api.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-EAR/target/Banco-EAR/lib/jboss-ejb-api_3.2_spec.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-EJB/target/Banco-EJB.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-JPA/target/Banco-JPA-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-WEB/target/Banco-WEB/WEB-INF/lib/javax.ejb-api-3.2.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-WEB/target/Banco-WEB/WEB-INF/lib/javax.transaction-api-1.2.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-WEB/target/Banco-WEB/WEB-INF/lib/jaxrs-api-3.0.12.Final.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-WEB/target/Banco-WEB/WEB-INF/lib/omnifaces-2.4.jar"/>
+	<classpathentry kind="lib" path="Banco-POM/Banco-POM/Banco-WEB/target/Banco-WEB/WEB-INF/lib/primefaces-5.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Banco-POM/Banco-POM/Banco-EJB/target/classes"/>
+</classpath>

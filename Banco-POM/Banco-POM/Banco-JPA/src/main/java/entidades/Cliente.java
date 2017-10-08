@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 
 //Prueba para subir al git prueba git 2
+//my commit 
+//si sale esto es porque fue exitoso! ;)
 @Entity
 @Table(name="T_CLIENTES")
 public class Cliente implements Serializable {
