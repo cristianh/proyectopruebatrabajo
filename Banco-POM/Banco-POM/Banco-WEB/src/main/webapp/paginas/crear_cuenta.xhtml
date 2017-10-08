@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+
+
+</h:head>
+
+<h:body>
+
+	<h:form id="formulario">
+		<h:panelGrid id="panelMacro" style="margin: 0 auto;">
+			<h:panelGrid id="panelCrud" columns="4"
+				rendered="#{cuentaAction.mostrarPanelCrud}">
+
+				<h:outputText id="labelNumero" value="Numero" />
+				<h:inputText id="campoNumero" value="#{cuentaAction.numeroCuenta}" />
+
+				<h:outputText id="labelCliente" value="Cliente" />
+				<h:selectOneMenu id="comboCliente"
+					value="#{cuentaAction.clienteSeleccionado}"
+					converter="clienteConverter">
+					<f:selectItem itemValue="#{null}" itemLabel="Seleccione" />
+					<f:selectItems value="#{cuentaAction.clientes}" var="cliente"
+						itemLabel="#{cliente.cedula} - #{cliente.nombre}"
+						itemValue="#{cliente}" />
+
+				</h:selectOneMenu>
+
+				<h:outputText id="labelTipoCuenta" value="Tipo Cuenta" />
+
+				<h:selectOneMenu id="comboTipoCuenta"
+					value="#{cuentaAction.tipoCuentaSeleccionado}"
+					converter="tipoCuentaConverter">
+
+					<f:selectItem itemValue="#{null}" itemLabel="Seleccione" />
+
+					<f:selectItems value="#{cuentaAction.tiposCuenta}" var="tipoCta"
+						itemLabel="#{tipoCta.descripcion}" itemValue="#{tipoCta}" />
+
+					<f:ajax event="change" execute="@this" render="campoSaldo"
+						listener="#{cuentaAction.seleccionarTipoCuenta}" />
+
+				</h:selectOneMenu>
+
+
+				<h:outputText id="labelSaldo" value="Saldo" />
+				<h:inputText id="campoSaldo" value="#{cuentaAction.saldo}"
+					disabled="true" />
+
+				<h:outputText id="labelPassword" value="Password" />
+				<h:inputSecret id="campoPassword" value="#{cuentaAction.password}" />
+
+				<h:outputText id="labelEstado" value="Estado" />
+
+				<h:selectOneRadio value="#{cuentaAction.estado}" disabled="true">
+					<f:selectItem itemValue="A" itemLabel="Activa" />
+					<f:selectItem itemValue="I" itemLabel="Inactiva" />
+				</h:selectOneRadio>
+
+				</h:panelGrid>
+
+				<h:panelGrid id="panelBotonCrud" columns="2" style="margin: 0 auto;"
+					rendered="#{cuentaAction.mostrarPanelCrud}">
+
+
+					<h:commandButton value="Guardar"
+						action="#{cuentaAction.crearCuenta}">
+						<f:ajax event="action" execute="@form" render="panelMacro tabla" />
+					</h:commandButton>
+
+					<h:commandButton value="Cancelar"
+						action="#{cuentaAction.inHabilitarPanel}">
+						<f:ajax event="action" render="panelMacro" />
+					</h:commandButton>
+
+				
+			</h:panelGrid>
+
+
+
+
+		</h:panelGrid>
+
+
+		<h:panelGrid id="panelTabla" columns="1" style="margin: 0 auto;">
+
+			<h:dataTable id="tabla" border="1" value="#{cuentaAction.cuentas}"
+				var="cuenta">
+
+				<h:column>
+					<f:facet name="header">Numero</f:facet>
+					<h:outputText value="#{cuenta.numero}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					<h:outputText value="#{cuenta.cliente.nombre}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Cedula</f:facet>
+					<h:outputText value="#{cuenta.cliente.cedula}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Saldo</f:facet>
+					<h:outputText value="#{cuenta.saldo}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Tipo</f:facet>
+					<h:outputText value="#{cuenta.tipoCuenta.descripcion}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Estado</f:facet>
+					<h:outputText value="#{cuenta.cancelada ? 'CANCELADA' : 'ACTIVA' }" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Editar</f:facet>
+					<h:commandButton value="Editar" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Eliminar</f:facet>
+					<h:commandButton value="Eliminar" />
+				</h:column>
+
+
+			</h:dataTable>
+
+		</h:panelGrid>
+
+
+		<h:panelGrid id="panelBotonCrear" columns="1" style="margin: 0 auto;">
+
+
+			<h:commandButton value="Crear"
+				action="#{cuentaAction.habilitarPanel}">
+				<f:ajax event="action" render="panelMacro" />
+			</h:commandButton>
+
+		</h:panelGrid>
+
+	</h:form>
+
+
+</h:body>
+
+</html>
