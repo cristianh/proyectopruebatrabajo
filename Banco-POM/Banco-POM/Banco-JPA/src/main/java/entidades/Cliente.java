@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-
+//Prueba para subir al git
 @Entity
 @Table(name="T_CLIENTES")
 public class Cliente implements Serializable {
